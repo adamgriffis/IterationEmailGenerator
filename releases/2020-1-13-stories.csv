@@ -1,0 +1,3 @@
+issue_number,issue_type,name,exeternal_tickets
+CH-5422,Reactive Story,Prevent Semicolon-Separated Client Emails for QBO Users,""
+CH-4324,Proactive Story,Invoice Rollup - Sync Changes,""
