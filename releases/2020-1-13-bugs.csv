@@ -1,3 +1,3 @@
-issue_number,name,exeternal_tickets
-CH-5418,Prepay with email receipts hit 500 error (but process and send email before that point),https://singleops.zendesk.com/agent/tickets/9964
-CH-5382,QBO - Duplicate Combined Invoices Synced,https://singleops.zendesk.com/agent/tickets/9926
+link,issue_number,name,release,exeternal_tickets
+https://app.clubhouse.io/singleops/story/5418,CH-5418,Prepay with email receipts hit 500 error (but process and send email before that point),2020-1-13,https://singleops.zendesk.com/agent/tickets/9964
+https://app.clubhouse.io/singleops/story/5382,CH-5382,QBO - Duplicate Combined Invoices Synced,2020-1-13,https://singleops.zendesk.com/agent/tickets/9926

@@ -207,12 +207,13 @@ class Generator
   def create_story_csv(release, stories)
     CSV.open("releases/#{release}-stories.csv", "wb",
       write_headers: true,
-      headers: ["issue_number", "issue_type", "name", "exeternal_tickets"]) do |csv|
+      headers: ["Link", "Story #", "Name", "Release", "External Tickets"]) do |csv|
         stories.each do |story|
           csv << [
+            story['app_url'],
             "CH-#{story['id']}",
-            issue_type(story),
             story['name'],
+            release,
             external_links_plain(story)
           ]
         end
@@ -224,11 +225,13 @@ class Generator
   def create_bugs_csv(release, bugs)
     CSV.open("releases/#{release}-bugs.csv", "wb",
       write_headers: true,
-      headers: ["issue_number", "name", "exeternal_tickets"]) do |csv|
+      headers: ["link", "issue_number", "name", "release", "exeternal_tickets"]) do |csv|
         bugs.each do |story|
           csv << [
+            story['app_url'],
             "CH-#{story['id']}",
             story['name'],
+            release,
             external_links_plain(story)
           ]
         end

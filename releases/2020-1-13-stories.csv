@@ -1,3 +1,3 @@
-issue_number,issue_type,name,exeternal_tickets
-CH-5422,Reactive Story,Prevent Semicolon-Separated Client Emails for QBO Users,""
-CH-4324,Proactive Story,Invoice Rollup - Sync Changes,""
+Link,Story #,Name,Release,External Tickets
+https://app.clubhouse.io/singleops/story/5422,CH-5422,Prevent Semicolon-Separated Client Emails for QBO Users,2020-1-13,""
+https://app.clubhouse.io/singleops/story/4324,CH-4324,Invoice Rollup - Sync Changes,2020-1-13,""
