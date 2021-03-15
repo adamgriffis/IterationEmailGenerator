@@ -65,7 +65,11 @@ class Generator
 
     response = RestClient::post BASE_URL + 'stories/search', params
 
-    JSON.parse(response.body)
+    stories = JSON.parse(response.body)
+
+    stories = stories.select { |story| workflow_state_string(story) != "Customization / Bug Backlog"}
+
+    return stories
   end
 
   def get_release_stories(release_name)
@@ -82,6 +86,10 @@ class Generator
     state_id = story['workflow_state_id']
 
     state = workflow_states.find { |st| st['id'] == state_id}
+
+    if state.nil?
+      puts "Unable to find workflow state for #{story['app_url']} -- is it in the right workflow?"
+    end
 
     state['name']
   end
@@ -254,9 +262,9 @@ end
 command = ARGV[0]
 
 if ARGV[0] == 'Sprint'
-  sprint = "Sprint #{ARGV[1]}"
+  sprint = ARGV[1..10].join(" ")
   generator = Generator.new
-  path = "sprints/sprint-plan-#{ARGV[1]}.html"
+  path = "sprints/sprint-plan-#{sprint.downcase.gsub(' ', '-')}.html"
   html = generator.generate_iteration_email(sprint)
   File.open(path, 'w') { |file| file.write(html) }
   system %{open "#{path}"} 
